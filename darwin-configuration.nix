@@ -2,6 +2,12 @@
 {
   imports = [ <home-manager/nix-darwin> ];
 
+   nix.nixPath = [
+    "nixpkgs=https://channels.nixos.org/nixpkgs-21.05-darwin/"
+    "home-manager=https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz"
+    "darwin=https://github.com/LnL7/nix-darwin/archive/master.tar.gz"
+  ];
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs;
