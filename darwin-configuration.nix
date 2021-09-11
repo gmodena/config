@@ -3,7 +3,7 @@
   imports = [ <home-manager/nix-darwin> ];
 
    nix.nixPath = [
-    "nixpkgs=https://channels.nixos.org/nixpkgs-21.05-darwin/"
+    "nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-21.05-darwin.tar.gz"
     "home-manager=https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz"
     "darwin=https://github.com/LnL7/nix-darwin/archive/master.tar.gz"
   ];
