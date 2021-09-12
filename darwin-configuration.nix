@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 {
   imports = [ <home-manager/nix-darwin> ];
-
-   nix.nixPath = [
+  
+  nix.nixPath = [
     "nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-21.05-darwin.tar.gz"
     "home-manager=https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz"
     "darwin=https://github.com/LnL7/nix-darwin/archive/master.tar.gz"
@@ -17,6 +17,9 @@
     bat
     python37
   ];
+
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.remapCapsLockToEscape = true;
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
@@ -50,7 +53,6 @@
         cp ${LS_COLORS}/LS_COLORS $out/share/LS_COLORS
         '';
     in with pkgs; [ cargo ls-colors ];
-    
     programs.bat.enable = true;
     programs.neovim = {
       enable = true;
