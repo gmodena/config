@@ -16,6 +16,7 @@
     tmux
     bat
     python37
+    neomutt
   ];
 
   system.keyboard.enableKeyMapping = true;
