@@ -17,6 +17,7 @@
     bat
     python37
     neomutt
+    nodejs
   ];
 
   system.keyboard.enableKeyMapping = true;
