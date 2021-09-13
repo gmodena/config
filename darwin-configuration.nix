@@ -18,6 +18,7 @@
     python37
     neomutt
     nodejs
+    git
   ];
 
   system.keyboard.enableKeyMapping = true;
