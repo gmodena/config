@@ -63,11 +63,24 @@
       enable = true;
       vimAlias = true;
       extraConfig = "colorscheme gruvbox";
+      withPython3 = true;
       plugins = with pkgs.vimPlugins; [
+        coc-nvim
+        coc-python
         vim-nix
         gruvbox
       ];
+      extraPackages = with pkgs; [
+        (python3.withPackages (ps: with ps; [
+          black
+          flake8
+        ]))
+      ];
+      extraPython3Packages = (ps: with ps; [
+        jedi
+      ]);
     };
+    xdg.configFile."nvim/coc-settings.json".text = builtins.readFile /Users/gmodena/nvim/my-coc-settings.json;
   };
 
   # Used for backwards compatibility, please read the changelog before changing.
