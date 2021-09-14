@@ -69,6 +69,7 @@
       plugins = with pkgs.vimPlugins; [
         coc-nvim
         coc-python
+        vim-yaml
         vim-nix
         gruvbox
       ];
