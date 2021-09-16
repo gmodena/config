@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 {
   imports = [ <home-manager/nix-darwin> ];
-  
+
   nix.nixPath = [
     "nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-21.05-darwin.tar.gz"
     "home-manager=https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz"
@@ -44,6 +44,9 @@
   };
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina
+  programs.zsh.variables = {
+    EDITOR = "vim";
+  };
   # programs.fish.enable = true;
 
   users.users.gmodena = {
