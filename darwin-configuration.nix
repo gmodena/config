@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports = [ <home-manager/nix-darwin> ];
   
@@ -7,6 +7,10 @@
     "home-manager=https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz"
     "darwin=https://github.com/LnL7/nix-darwin/archive/master.tar.gz"
   ];
+
+  nix.package = pkgs.nixFlakes;
+  nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
+		"experimental-features = nix-command flakes";
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -69,7 +73,6 @@
       plugins = with pkgs.vimPlugins; [
         coc-nvim
         coc-python
-        vim-yaml
         vim-nix
         gruvbox
       ];
