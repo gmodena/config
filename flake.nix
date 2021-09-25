@@ -12,11 +12,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
- outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }: 
- let 
-   inherit (darwin.lib) darwinSystem;
- in {
-   darwinConfigurations.Gabrieles-MBP = darwinSystem {
+ outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }: {
+   darwinConfigurations.Gabrieles-MBP = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [ 
           ./modules/darwin-configuration.nix
@@ -25,6 +22,6 @@
             home-manager.users.gmodena = import ./modules/home.nix;
           }
         ];
-        };
-  };
+      };
+    };
 }
