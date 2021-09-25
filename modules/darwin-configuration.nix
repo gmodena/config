@@ -33,7 +33,7 @@
   # services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
   homebrew  = {
-    enable = true;
+    enable = false;
   };
 
   # Create /etc/bashrc that loads the nix-darwin environment.
