@@ -1,6 +1,7 @@
 { inputs, config, pkgs, ... }:
+
 let 
-    homeDir = "/Users/gmodena";
+    homeDir = config.home.homeDirectory;
     LS_COLORS = pkgs.fetchgit {
       url = "https://github.com/trapd00r/LS_COLORS";
       rev = "6fb72eecdcb533637f5a04ac635aa666b736cf50";
@@ -16,11 +17,22 @@ let
   {
     programs.home-manager = {
       enable = true;
-#     path = "${homeDir}/.nixpkgs/modules/home-manager";
+      path = "${config.home.homeDirectory}/.nixpkgs/modules/home-manager";
     };
 
+    home = {
+      # This value determines the Home Manager release that your
+      # configuration is compatible with. This helps avoid breakage
+      # when a new Home Manager release introduces backwards
+      # incompatible changes.
+      #
+      # You can update Home Manager without changing this value. See
+      # the Home Manager release notes for a list of state version
+      # changes in each release.
+      stateVersion = "21.05";
+      packages = [pkgs.cargo ls-colors];
+    };
 
-    home.packages = [pkgs.cargo ls-colors];
     programs.bat.enable = true;
     programs.neovim = {
       enable = true;
@@ -43,7 +55,5 @@ let
         jedi
       ]);
     };
-    xdg.configFile."nvim/coc-settings.json".text = builtins.readFile /Users/gmodena/nvim/my-coc-settings.json;
-
-    home.stateVersion = "21.05";
+    xdg.configFile."nvim/coc-settings.json".text = builtins.readFile ./dotfiles/nvim/my-coc-settings.json;
 }

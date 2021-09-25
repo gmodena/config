@@ -15,15 +15,16 @@
  outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }: 
  let 
    inherit (darwin.lib) darwinSystem;
-   lib = nixpkgs.lib;
-  
-#isDarwin = system: (builtins.elem system lib.platforms.darwin);
-#homePrefix = system: if isDarwin system then "/Users" else "/home";
-
  in {
-    darwinConfigurations.Gabrieles-MBP = darwinSystem {
+   darwinConfigurations.Gabrieles-MBP = darwinSystem {
       system = "x86_64-darwin";
-      modules = [ ./modules/darwin-configuration.nix ./modules/home.nix];
-    };
+      modules = [ 
+          ./modules/darwin-configuration.nix
+          home-manager.darwinModules.home-manager {
+            home-manager.useUserPackages = true; 
+            home-manager.users.gmodena = import ./modules/home.nix;
+          }
+        ];
+        };
   };
 }

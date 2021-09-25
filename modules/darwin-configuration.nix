@@ -1,11 +1,5 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 {
-  nix.nixPath = [
-    "nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-21.05-darwin.tar.gz"
-    "home-manager=https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz"
-    "darwin=https://github.com/LnL7/nix-darwin/archive/master.tar.gz"
-  ];
-
   nix.package = pkgs.nixFlakes;
   nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
 		"experimental-features = nix-command flakes";
@@ -40,6 +34,7 @@
   homebrew  = {
     enable = true;
   };
+
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina
   programs.zsh.variables = {
