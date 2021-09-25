@@ -4,5 +4,5 @@ my [nix-darwin](https://github.com/LnL7/nix-darwin) systems.
 # Build
 
 ```
-darwin-rebuild switch --flake '.#' --impure
+darwin-rebuild switch --flake '.#'
 ```
