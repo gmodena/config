@@ -16,12 +16,13 @@
    darwinConfigurations.Gabrieles-MBP = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [ 
-          ./modules/darwin-configuration.nix
-          home-manager.darwinModules.home-manager {
-            home-manager.useUserPackages = true; 
-            home-manager.users.gmodena = import ./modules/home.nix;
-          }
-        ];
+        ./modules/darwin-configuration.nix
+        home-manager.darwinModules.home-manager {
+          home-manager.useUserPackages = true; 
+#          home-manager.users.gmodena = import ./modules/home.nix;
+       }
+       ./profiles/personal.nix
+       ];
       };
     };
 }

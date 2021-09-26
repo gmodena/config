@@ -32,7 +32,7 @@ let
       stateVersion = "21.05";
       packages = [pkgs.cargo ls-colors];
     };
-
+    programs.git.enable = true;
     programs.bat.enable = true;
     programs.neovim = {
       enable = true;

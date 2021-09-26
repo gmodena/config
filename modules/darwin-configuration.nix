@@ -4,7 +4,15 @@
   nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
 		"experimental-features = nix-command flakes";
 
-  imports = [./casks.nix ];
+  imports = [./primary.nix ./casks.nix ];
+
+  user = { 
+    name = "gmodena";
+    home = "/Users/gmodena";
+    shell = pkgs.zsh;
+  };
+  hm = import ./home.nix;
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs;
