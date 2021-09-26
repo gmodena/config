@@ -32,6 +32,10 @@
   system.defaults.loginwindow.GuestEnabled = false;
   system.defaults.dock.autohide = false;
   system.defaults.dock.orientation = "left";
+  
+  # Whether to automatically rearrange spaces based on most recent use.
+  # Switched off because it confuses Amethyst.
+  system.defaults.dock.mru-spaces = false;
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
