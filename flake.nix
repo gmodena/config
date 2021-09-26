@@ -19,7 +19,6 @@
         ./modules/darwin-configuration.nix
         home-manager.darwinModules.home-manager {
           home-manager.useUserPackages = true; 
-#          home-manager.users.gmodena = import ./modules/home.nix;
        }
        ./profiles/personal.nix
        ];
