@@ -12,16 +12,24 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
- outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }: {
-   darwinConfigurations.Gabrieles-MBP = darwin.lib.darwinSystem {
-      system = "x86_64-darwin";
-      modules = [ 
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
+  let 
+    mkDarwinConfiguration = {
+      baseModules ? [
         ./modules/darwin-configuration.nix
-        home-manager.darwinModules.home-manager {
-          home-manager.useUserPackages = true; 
-       }
-       ./profiles/personal.nix
-       ];
+          home-manager.darwinModules.home-manager {
+          home-manager.useUserPackages = true;
+        }
+      ]
+      , extraModules ? [ ]
+    }: darwin.lib.darwinSystem {
+      system = "x86_64-darwin";
+      modules = baseModules ++ extraModules;
+    };
+
+  in {
+    darwinConfigurations.Gabrieles-MBP = mkDarwinConfiguration {
+        extraModules = [ ./profiles/personal.nix ];
       };
     };
 }
