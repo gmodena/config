@@ -2,10 +2,14 @@
   programs.git = {
     userEmail = "gmodena@pm.me";
     userName = "Gabriele Modena";
-    # for git send-email
-    smtpServer = "smtp.gmail.com";
-    smtpServerPort = "587";
-    smtpEncryption = "tls";
-    smtpUser = "gabriele.modena@gmail.com";
+    extraConfig = {
+      sendmail = {
+        # for git send-email
+        smtpserver = "smtp.gmail.com";
+        smtpserverPort = "587";
+        smtpencryption = "tls";
+        smtpuser = "gabriele.modena@gmail.com";
+      };
+    };
   };
 }
