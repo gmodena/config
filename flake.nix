@@ -28,8 +28,13 @@
     };
 
   in {
-    darwinConfigurations.Gabrieles-MBP = mkDarwinConfiguration {
+    darwinConfigurations = { 
+      Gabrieles-MBP = mkDarwinConfiguration {
         extraModules = [ ./profiles/personal.nix ];
       };
+      wmf2799 = mkDarwinConfiguration {
+        extraModules = [ ./profiles/wmf.nix ];
+      };
     };
+  };
 }
