@@ -42,6 +42,8 @@ in
       plugins = with pkgs.vimPlugins; [
         coc-nvim
         coc-python
+        coc-metals
+        vim-scala
         vim-nix
         gruvbox
       ];
