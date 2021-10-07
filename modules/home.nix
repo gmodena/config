@@ -37,7 +37,7 @@ in
     programs.neovim = {
       enable = true;
       vimAlias = true;
-      extraConfig = "colorscheme gruvbox";
+      extraConfig = builtins.readFile ./dotfiles/nvim/init.vim;
       withPython3 = true;
       plugins = with pkgs.vimPlugins; [
         coc-nvim
