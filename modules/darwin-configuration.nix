@@ -20,7 +20,7 @@
     neovim
     tmux
     bat
-    python37
+    python38
     neomutt
     nodejs
     git
