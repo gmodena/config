@@ -47,14 +47,10 @@ in
         vim-nix
         gruvbox
       ];
-      extraPackages = with pkgs; [
-        (python3.withPackages (ps: with ps; [
-          black
-          flake8
-        ]))
-      ];
       extraPython3Packages = (ps: with ps; [
         jedi
+        black
+        flake8
       ]);
     };
     programs.zsh = {
