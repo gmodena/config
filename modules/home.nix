@@ -36,6 +36,7 @@ in
       enable = true;
       extraConfig = {
         init.defaultBranch = "main";
+        pull.rebase = false;
       };
     };
     programs.bat.enable = true;
