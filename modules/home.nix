@@ -32,7 +32,13 @@ in
       stateVersion = "21.11";
       packages = with pkgs; [ls-colors cargo pipenv];
     };
-    programs.git.enable = true;
+    programs.git = {
+      enable = true;
+      extraConfig = {
+        init.defaultBranch = "main";
+        pull.rebase = false;
+      };
+    };
     programs.bat.enable = true;
     programs.neovim = {
       enable = true;
