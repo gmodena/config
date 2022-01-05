@@ -30,7 +30,11 @@ in
       # the Home Manager release notes for a list of state version
       # changes in each release.
       stateVersion = "21.11";
-      packages = with pkgs; [ls-colors cargo pipenv];
+
+      packages = with pkgs; [ls-colors
+        rustup
+        rust-analyzer # TODO(gmodena, 2022-01-05): will this conflict with rustup?
+        pipenv];
     };
     programs.git = {
       enable = true;
@@ -49,8 +53,10 @@ in
         coc-nvim
         coc-python
         coc-metals
+        coc-rust-analyzer
         vim-scala
         vim-nix
+        rust-vim
         gruvbox
       ];
       extraPython3Packages = (ps: with ps; [
