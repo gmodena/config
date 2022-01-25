@@ -34,7 +34,8 @@ in
       packages = with pkgs; [ls-colors
         rustup
         rust-analyzer # TODO(gmodena, 2022-01-05): will this conflict with rustup?
-        pipenv];
+        pipenv
+        pkg-config];
     };
     programs.git = {
       enable = true;
