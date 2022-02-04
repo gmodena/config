@@ -4,6 +4,7 @@
       "1password"
       "firefox" 
       "keybase"
+      "cryptomator"
     ];
   };
 }
