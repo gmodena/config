@@ -5,6 +5,7 @@
       "firefox" 
       "keybase"
       "cryptomator"
+      "obsidian"
     ];
   };
 }
