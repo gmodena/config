@@ -35,7 +35,8 @@ in
         rustup
         rust-analyzer # TODO(gmodena, 2022-01-05): will this conflict with rustup?
         pipenv
-        pkg-config];
+        pkg-config
+        sshuttle];
     };
     programs.git = {
       enable = true;
