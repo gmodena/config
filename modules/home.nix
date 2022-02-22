@@ -30,7 +30,7 @@ in
       # the Home Manager release notes for a list of state version
       # changes in each release.
       stateVersion = "21.11";
-      packages = with pkgs; [ls-colors cargo pipenv];
+      packages = with pkgs; [ls-colors cargo pipenv nixpkgs-fmt];
     };
     programs.git = {
       enable = true;
