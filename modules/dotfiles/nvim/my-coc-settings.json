@@ -2,5 +2,6 @@
   "python.formatting.provider": "black",
   "python.jediEnabled": true,
   "python.linting.flake8Enabled": true,
-  "python.pythonPath": "nvim-python3"
+  "python.pythonPath": "nvim-python3",
+  "rust-analyzer.server.path": "rust-analyzer"
 }

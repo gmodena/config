@@ -4,6 +4,8 @@
       "1password"
       "firefox" 
       "keybase"
+      "cryptomator"
+      "obsidian"
     ];
   };
 }
