@@ -30,13 +30,13 @@ in
       # the Home Manager release notes for a list of state version
       # changes in each release.
       stateVersion = "21.11";
-
       packages = with pkgs; [ls-colors
         rustup
         rust-analyzer # TODO(gmodena, 2022-01-05): will this conflict with rustup?
         pipenv
         pkg-config
-        sshuttle];
+        sshuttle
+        nixpkgs-fmt];
     };
     programs.git = {
       enable = true;
