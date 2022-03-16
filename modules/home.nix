@@ -36,7 +36,8 @@ in
         pipenv
         pkg-config
         sshuttle
-        nixpkgs-fmt];
+        nixpkgs-fmt
+        gnupg];
     };
     programs.git = {
       enable = true;
