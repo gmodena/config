@@ -21,7 +21,21 @@
       ./vmware-hardware-configuration.nix
     ];
   hm = import ./home.nix;
-  
+  # List packages installed in system profile. To search by name, run:
+  # $ nix-env -qaP | grep wget
+  environment.systemPackages = with pkgs;
+  [ adoptopenjdk-openj9-bin-8
+    direnv
+    neovim
+    tmux
+    bat
+    python38
+    neomutt
+    nodejs
+    git
+  ];
+
+ 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
