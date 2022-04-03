@@ -2,7 +2,7 @@
   description = "nix system config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     
@@ -14,6 +14,20 @@
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
   let 
+    mkNixosConfiguration = {
+      baseModules ? [
+        ./modules/nixos-configuration.nix
+          home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+        }
+      ]
+      , extraModules ? [ ]
+    }: nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = baseModules ++ extraModules;
+    };
+
     mkDarwinConfiguration = {
       baseModules ? [
         ./modules/darwin-configuration.nix
@@ -28,7 +42,12 @@
     };
 
   in {
-    darwinConfigurations = { 
+    nixosConfigurations = { 
+      vmware-nixos-1 = mkNixosConfiguration {
+        extraModules = [ ./profiles/personal.nix];
+      };
+    };
+   darwinConfigurations = { 
       Gabrieles-MBP = mkDarwinConfiguration {
         extraModules = [ ./profiles/personal.nix ];
       };
