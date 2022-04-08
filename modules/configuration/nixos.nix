@@ -16,11 +16,11 @@
   imports =
     [ 
       # Some useful aliases (inc. home-manager -> hm)
-      ./primary.nix
+      ../primary.nix
       # Include the results of the hardware scan.
-      ../hardware/vmware-fusion-x86_64.nix
+      ../../hardware/vmware-fusion-x86_64.nix
     ];
-  hm = import ./home.nix;
+  hm = import ../home.nix;
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs;

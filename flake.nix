@@ -16,7 +16,7 @@
   let 
     mkNixosConfiguration = {
       baseModules ? [
-        ./modules/nixos-configuration.nix
+        ./modules/configuration/nixos.nix
           home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -30,7 +30,7 @@
 
     mkDarwinConfiguration = {
       baseModules ? [
-        ./modules/darwin-configuration.nix
+        ./modules/configuration/darwin.nix
           home-manager.darwinModules.home-manager {
           home-manager.useUserPackages = true;
         }
