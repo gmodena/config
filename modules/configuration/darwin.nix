@@ -2,10 +2,6 @@
 {
   imports = [../primary.nix ./shared.nix ../casks.nix];
 
-  user = { 
-    home = "/Users/gmodena";
-  };
-
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
 
