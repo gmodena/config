@@ -12,3 +12,5 @@ darwin-rebuild switch --flake '.#'
 
 On nixos:
 ```
+nixos-rebuild switch --flake '.#'
+```
