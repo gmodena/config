@@ -18,7 +18,7 @@
       # Some useful aliases (inc. home-manager -> hm)
       ./primary.nix
       # Include the results of the hardware scan.
-      ./vmware-hardware-configuration.nix
+      ../hardware/vmware-fusion-x86_64.nix
     ];
   hm = import ./home.nix;
   # List packages installed in system profile. To search by name, run:
