@@ -6,6 +6,7 @@
       "keybase"
       "cryptomator"
       "obsidian"
+      "barrier"
     ];
   };
 }
