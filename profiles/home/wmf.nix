@@ -3,6 +3,7 @@
     packages  = with pkgs; [
     minikube
     kubernetes-helm
+    kcat
     ];
   };
   programs.git = {
