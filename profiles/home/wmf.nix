@@ -1,4 +1,10 @@
 { config, lib, pkgs, ... }: {
+  home = { 
+    packages  = with pkgs; [
+    minikube
+    kubernetes-helm
+    ];
+  };
   programs.git = {
     userEmail = "gmodena@wikimedia.org";
     userName = "Gabriele Modena";
