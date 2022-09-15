@@ -13,6 +13,17 @@
       sshCommand = "ssh -v";
     };
   };
+  programs.zsh = {
+    initExtra = ''
+      blubber() {
+        if [ $# -lt 2 ]; then
+          echo 'Usage: blubber config.yaml variant'
+          return 1
+        fi
+        curl -s -H 'content-type: application/yaml' --data-binary @"$1" https://blubberoid.wikimedia.org/v1/"$2"
+      }
+    '';
+  };
 
   xdg.configFile."barrier/barrier.conf" = {
     # Barrier KVM server configuration.
