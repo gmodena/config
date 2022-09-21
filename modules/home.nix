@@ -37,7 +37,8 @@ in
         pkg-config
         sshuttle
         nixpkgs-fmt
-        gnupg];
+        gnupg
+        jq];
     };
     programs.git = {
       enable = true;
