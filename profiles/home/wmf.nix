@@ -4,6 +4,7 @@
     minikube
     kubernetes-helm
     kcat
+    git-review
     ];
   };
   programs.git = {
