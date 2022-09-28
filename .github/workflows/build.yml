@@ -28,5 +28,5 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - name: Run Flake Checks
         run: |
-          nix flake check -v --show-trace
+          nix flake check -v --keep-going --show-trace
         timeout-minutes: 60
