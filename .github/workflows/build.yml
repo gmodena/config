@@ -13,9 +13,11 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - macos-latest
+          # IFD is broken on darwin? https://github.com/NixOS/nix/pull/6988
+           - macos-latest
           - ubuntu-latest
     runs-on: ${{ matrix.os }}
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v3
         with:
