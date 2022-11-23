@@ -38,7 +38,8 @@ in
         sshuttle
         nixpkgs-fmt
         gnupg
-        jq];
+        jq
+        wget];
     };
     programs.git = {
       enable = true;
