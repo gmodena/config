@@ -39,7 +39,8 @@ in
         nixpkgs-fmt
         gnupg
         jq
-        wget];
+        wget
+        cachix];
     };
     programs.git = {
       enable = true;
