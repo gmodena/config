@@ -40,7 +40,8 @@ in
         gnupg
         jq
         wget
-        cachix];
+        cachix
+        direnv];
     };
     programs.git = {
       enable = true;
