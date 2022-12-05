@@ -7,6 +7,7 @@
       "cryptomator"
       "obsidian"
       "barrier"
+      "brave-browser"
     ];
   };
 }
