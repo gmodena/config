@@ -13,7 +13,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
-  let 
+  let
     mkNixosConfiguration = {
       baseModules ? [
         ./modules/configuration/nixos.nix

@@ -54,7 +54,7 @@ in
     programs.neovim = {
       enable = true;
       vimAlias = true;
-      extraConfig = builtins.readFile ./dotfiles/nvim/init.vim;
+      extraConfig = builtins.readFile ../dotfiles/nvim/init.vim;
       withPython3 = true;
       plugins = with pkgs.vimPlugins; [
         coc-nvim
@@ -78,9 +78,9 @@ in
         ls = "ls --color=auto -F";
       };
       initExtraBeforeCompInit = ''
-        eval $(${pkgs.coreutils}/bin/dircolors -b ${./home/LS_COLORS})
+        eval $(${pkgs.coreutils}/bin/dircolors -b ${../home/LS_COLORS})
         eval "$(direnv hook zsh)"
       '';
     };
-    xdg.configFile."nvim/coc-settings.json".text = builtins.readFile ./dotfiles/nvim/my-coc-settings.json;
+    xdg.configFile."nvim/coc-settings.json".text = builtins.readFile ../dotfiles/nvim/my-coc-settings.json;
 }

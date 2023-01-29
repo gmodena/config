@@ -20,7 +20,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "vmware-nixos-1"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
