@@ -2,6 +2,8 @@
 {
   imports = [../primary.nix ./shared.nix ../casks.nix];
 
+  hm = import ../../home-manager/default.nix;
+
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
 

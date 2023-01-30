@@ -8,20 +8,12 @@
   imports =
     [ 
       # Some useful aliases (inc. home-manager -> hm)
-      ../primary.nix
+      ../../primary.nix
       # System packages and shared config
-      ./shared.nix
-      # Include the results of the hardware scan.
-      ../../hardware/vmware-fusion-x86_64.nix
+      ../common.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "vmware-nixos-1"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
+  hm = import ../../home-manager/desktop/nixos/default.nix;
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
@@ -77,8 +69,7 @@
   # $ nix search wget
   # environment.systemPackages = with pkgs; [
   #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  #   firefox
+  #  zsh
   # ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -88,6 +79,10 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  environment.variables = {
+    EDITOR = "vim";
+  };
 
   # List services that you want to enable:
 

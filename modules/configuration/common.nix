@@ -7,13 +7,13 @@ in {
   nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
 		"experimental-features = nix-command flakes";
 
- 
+  nixpkgs.config.allowUnfree = true;
   user = {
       name = "${userName}";
       shell = pkgs.zsh;
       home = "${homePrefix}/${userName}";
   };
-  hm = import ../home.nix;
+  #hm = import ../home-manager/desktop/nixos/default.nix;
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget

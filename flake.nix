@@ -13,10 +13,10 @@
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
-  let 
+  let
     mkNixosConfiguration = {
       baseModules ? [
-        ./modules/configuration/nixos.nix
+        ./modules/configuration/nixos/default.nix
           home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -30,7 +30,7 @@
 
     mkDarwinConfiguration = {
       baseModules ? [
-        ./modules/configuration/darwin.nix
+        ./modules/configuration/darwin/default.nix
           home-manager.darwinModules.home-manager {
           home-manager.useUserPackages = true;
         }
@@ -44,7 +44,7 @@
   in {
     nixosConfigurations = { 
       vmware-nixos-1 = mkNixosConfiguration {
-        extraModules = [ ./profiles/personal.nix];
+        extraModules = [ ./modules/configuration/vmware-nixos-1/default.nix ./profiles/personal.nix];
       };
     };
    darwinConfigurations = { 
