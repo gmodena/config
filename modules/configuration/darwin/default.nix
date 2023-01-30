@@ -1,6 +1,6 @@
 { inputs, config, pkgs, lib, ... }:
 {
-  imports = [../primary.nix ./shared.nix ../casks.nix];
+  imports = [../../primary.nix ../common.nix ../../casks.nix];
 
   hm = import ../../home-manager/default.nix;
 
