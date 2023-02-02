@@ -10,9 +10,11 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-22.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nixos-hardware, ... }:
   let
     mkNixosConfiguration = {
       baseModules ? [
@@ -42,6 +44,15 @@
     };
 
   in {
+    nixosConfigurations = {
+      framework-nixos-1 = mkNixosConfiguration {
+        extraModules = [ 
+	nixos-hardware.nixosModules.framework-12th-gen-intel
+	./modules/configuration/framework-nixos-1/default.nix
+	./profiles/personal.nix];
+      };
+    };
+
     nixosConfigurations = { 
       vmware-nixos-1 = mkNixosConfiguration {
         extraModules = [ ./modules/configuration/vmware-nixos-1/default.nix ./profiles/personal.nix];
