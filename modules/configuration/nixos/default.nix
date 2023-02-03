@@ -44,6 +44,13 @@
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
+  # Remap esc to caps lock.
+  # Might require running
+  # 
+  # gsettings reset org.gnome.desktop.input-sources xkb-options 
+  # gsettings reset org.gnome.desktop.input-sources sources
+  # After nixos-rebuild switch.
+  # TODO(2023-02-03): look at home-manager's dconf module;
   services.xserver.xkbOptions = "caps:swapescape";
 
   # Enable CUPS to print documents.
