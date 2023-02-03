@@ -20,12 +20,7 @@
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
-  # FIXME(2023-02-03): pin to kernel 6.1.6 to get brigthness keys working. Linux > 6.1.6
-  # seems to have introduced a regression.
-  # See https://community.frame.work/t/solved-12th-gen-not-sending-xf86monbrightnessup-down/20605/51
-  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_1.override {
-    argsOverride = { version = "6.1.6"; };
-  });
+  boot.kernelPackages = pkgs.linuxPackages_6_1;
   networking.hostName = "framework-nixos-1"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
