@@ -8,6 +8,10 @@ in {
 		"experimental-features = nix-command flakes";
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-18.1.0"
+    "electron-19.0.7"
+  ];
   user = {
       name = "${userName}";
       shell = pkgs.zsh;
