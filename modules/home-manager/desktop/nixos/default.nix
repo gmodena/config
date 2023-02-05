@@ -33,5 +33,6 @@ in
     gnomeExtensions.appindicator
     synology-drive-client
     powertop
+    albert
   ];
 }
