@@ -34,5 +34,7 @@ in
     synology-drive-client
     powertop
     albert
+    jetbrains.idea-community
+    vscode-fhs # TODO(2023-02-04): reconsider using fhs if I stick to this IDE
   ];
 }
