@@ -14,7 +14,7 @@ let
 in
 {
   imports = [../../default.nix ];
-  
+ 
   home.packages = with pkgs; [
     firefox
     _1password-gui
@@ -30,5 +30,6 @@ in
     hexchat
     podman
     paperwm-develop
+    gnomeExtensions.appindicator
   ];
 }
