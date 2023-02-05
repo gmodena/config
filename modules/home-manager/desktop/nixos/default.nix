@@ -32,5 +32,6 @@ in
     paperwm-develop
     gnomeExtensions.appindicator
     synology-drive-client
+    powertop
   ];
 }
