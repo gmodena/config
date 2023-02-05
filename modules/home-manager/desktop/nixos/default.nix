@@ -31,5 +31,6 @@ in
     podman
     paperwm-develop
     gnomeExtensions.appindicator
+    synology-drive-client
   ];
 }
