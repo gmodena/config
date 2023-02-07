@@ -46,6 +46,7 @@ in
     programs.git = {
       enable = true;
       extraConfig = {
+        core.editor = "vim";
         init.defaultBranch = "main";
         pull.rebase = false;
       };
