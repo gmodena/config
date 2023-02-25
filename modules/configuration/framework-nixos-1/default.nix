@@ -67,6 +67,12 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # https://nixos.wiki/wiki/Docker
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -91,7 +97,7 @@
   users.users.gmodena = {
     isNormalUser = true;
     description = "Gabriele Modena";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       firefox
     #  thunderbird
