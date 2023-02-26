@@ -40,5 +40,6 @@ in
     gcc
     gnome.gnome-tweaks
     protonvpn-gui
+    yacreader
   ];
 }
