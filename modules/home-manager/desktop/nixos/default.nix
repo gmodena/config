@@ -41,5 +41,7 @@ in
     gnome.gnome-tweaks
     protonvpn-gui
     yacreader
+    qbittorrent
+    tor-browser-bundle-bin
   ];
 }
