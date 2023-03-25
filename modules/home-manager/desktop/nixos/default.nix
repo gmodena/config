@@ -43,5 +43,6 @@ in
     yacreader
     qbittorrent
     tor-browser-bundle-bin
+    gnumake
   ];
 }
