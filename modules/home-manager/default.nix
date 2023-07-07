@@ -32,7 +32,6 @@ in
       stateVersion = "21.11";
       packages = with pkgs; [ls-colors
         rustup
-        rust-analyzer # TODO(gmodena, 2022-01-05): will this conflict with rustup?
         pipenv
         pkg-config
         sshuttle
