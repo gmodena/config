@@ -18,6 +18,7 @@ in {
       home = "${homePrefix}/${userName}";
   };
   #hm = import ../home-manager/desktop/nixos/default.nix;
+  programs.zsh.enable = true;
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
