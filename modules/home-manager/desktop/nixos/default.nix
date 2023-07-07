@@ -7,8 +7,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "paperwm";
       repo = "PaperWM";
-      rev = "f590f8b30f0c1962e2bc18f1a39355b0a72636cb";
-      hash = "sha256-ngyTsls0RYQyepfwvNJDPdlGMRC2+woFCW4RVjsaPRU=";
+      rev = "ff4b0b66827f62b1b6824186f0e6d650de55dc24";
+      hash = "sha256-QTeUbhqHi1fMhw5cgT5S6JGgDaPhBuMwn4nRcp7mSMU=";
     };
   });
 in
