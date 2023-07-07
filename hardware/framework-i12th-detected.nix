@@ -20,12 +20,19 @@
 
   boot.initrd.luks.devices."luks-9aea8db7-bfe2-40c4-8849-e25d57d4b80f".device = "/dev/disk/by-uuid/9aea8db7-bfe2-40c4-8849-e25d57d4b80f";
 
+  boot.resumeDevice = "/dev/disks/by-uuid/e7f50e13-7fc8-41fa-9a41-2adfb581f061";
+  # Calculated with filefrag -v /swapfile | awk '{if($1=="0:"){print $4}}' 
+  boot.kernelParams = [  "resume_offset=111732736" ];
+
   fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/11EB-BF41";
       fsType = "vfat";
     };
 
-  swapDevices = [ ];
+    swapDevices = [ {
+      device = "/swapfile";
+      size = 18 * 2048; # amount of ram + buffer
+    } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
