@@ -20,12 +20,13 @@
 
   boot.initrd.luks.devices."luks-9aea8db7-bfe2-40c4-8849-e25d57d4b80f".device = "/dev/disk/by-uuid/9aea8db7-bfe2-40c4-8849-e25d57d4b80f";
 
+  # protectKernelImage allows replacing a kernel image without rebooting,
+  # but disables hinerbation under the hood.
+  security.protectKernelImage = false;
   fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/11EB-BF41";
       fsType = "vfat";
     };
-
-  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

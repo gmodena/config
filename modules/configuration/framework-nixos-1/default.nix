@@ -49,6 +49,9 @@
     LC_TIME = "nl_NL.UTF-8";
   };
 
+
+  services.thermald.enable = true;
+
   services.fwupd.enable = true;
 
   # Enable the X11 windowing system.
@@ -100,6 +103,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       firefox
+      pmutils
     #  thunderbird
     ];
   };
