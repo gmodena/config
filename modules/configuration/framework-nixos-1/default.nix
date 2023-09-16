@@ -103,6 +103,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       firefox
+      pmutils
     #  thunderbird
     ];
   };
