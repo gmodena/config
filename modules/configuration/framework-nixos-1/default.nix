@@ -96,15 +96,17 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Enable flatpak. Some addiontal config might be required.
+  # https://flatpak.org/setup/NixOS
+  services.flatpak.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gmodena = {
     isNormalUser = true;
     description = "Gabriele Modena";
     extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
-      firefox
       pmutils
-    #  thunderbird
     ];
   };
 
