@@ -14,8 +14,13 @@ let
 in
 
 {
-  imports = [../../default.nix ];
- 
+  imports = [../../default.nix ../../../flatpak/home-manager.nix ];
+
+  services.flatpak.packages = [
+    { appId = "com.brave.Browser"; origin = "flathub";  }
+    "com.obsproject.Studio"
+    "im.riot.Riot"
+  ];
   home.packages = with pkgs; [
     firefox
     _1password-gui
