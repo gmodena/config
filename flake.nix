@@ -12,9 +12,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nix-flatpak.url = "../repo/nix-flatpak?ref=main"
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nixos-hardware, ... }:
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nixos-hardware, nix-flatpak, ... }:
   let
     mkNixosConfiguration = {
       baseModules ? [
@@ -24,7 +26,7 @@
           home-manager.useUserPackages = true;
         }
       ]
-      , extraModules ? [ ]
+      , extraModules ? [ nix-flatpak.homeManagerModules.nix-flatpak ]
     }: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = baseModules ++ extraModules;

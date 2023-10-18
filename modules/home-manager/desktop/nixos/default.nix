@@ -14,7 +14,7 @@ let
 in
 
 {
-  imports = [../../default.nix ../../../flatpak/home-manager.nix ];
+  imports = [../../default.nix ];
 
   services.flatpak.packages = [
     { appId = "com.brave.Browser"; origin = "flathub";  }
