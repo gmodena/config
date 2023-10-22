@@ -1,4 +1,4 @@
-{ input, config, pkgs, ... }:
+{ lib, config, pkgs, flake-inputs, ... }:
 let
   paperwm-develop = pkgs.gnomeExtensions.paperwm.overrideAttrs (old: {
     version = "39";
@@ -11,16 +11,16 @@ let
       hash = "sha256-QTeUbhqHi1fMhw5cgT5S6JGgDaPhBuMwn4nRcp7mSMU=";
     };
   });
-in
 
+in
 {
-  imports = [../../default.nix ../../../flatpak/home-manager.nix ];
+  imports = [ ../../default.nix flake-inputs.flatpaks.homeManagerModules.nix-flatpak ];
 
   services.flatpak.packages = [
     { appId = "com.brave.Browser"; origin = "flathub";  }
-    "com.obsproject.Studio"
     "im.riot.Riot"
   ];
+
   home.packages = with pkgs; [
     firefox
     _1password-gui
