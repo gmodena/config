@@ -40,7 +40,8 @@ in
         jq
         wget
         cachix
-        direnv];
+        direnv
+        scc];
     };
     programs.git = {
       enable = true;
