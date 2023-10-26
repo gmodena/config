@@ -29,7 +29,6 @@ in {
     tmux
     bat
     python38
-    neomutt
     nodejs
     git
   ];
