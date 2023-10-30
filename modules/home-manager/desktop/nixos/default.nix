@@ -19,13 +19,13 @@ in
   services.flatpak.packages = [
     { appId = "com.brave.Browser"; origin = "flathub";  }
     "im.riot.Riot"
+    "com.logseq.Logseq"
   ];
 
   home.packages = with pkgs; [
     firefox
     _1password-gui
     obsidian
-    logseq
     spotify
     whatsapp-for-linux
     tdesktop # Telegram Desktop app
@@ -49,5 +49,6 @@ in
     qbittorrent
     tor-browser-bundle-bin
     gnumake
+    chiaki
   ];
 }
