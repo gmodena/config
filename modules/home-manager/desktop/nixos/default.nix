@@ -20,6 +20,7 @@ in
     { appId = "com.brave.Browser"; origin = "flathub";  }
     "im.riot.Riot"
     "com.logseq.Logseq"
+    "com.jetbrains.IntelliJ-IDEA-Community"
   ];
 
   home.packages = with pkgs; [

@@ -137,7 +137,6 @@
         yelp # Help view
         gnome-contacts
         gnome-initial-setup
-        neomutt
       ]);
 
   # Some programs need SUID wrappers, can be configured further or are
