@@ -51,5 +51,8 @@ in
     tor-browser-bundle-bin
     gnumake
     chiaki
+    steam
+    steam-run
+    steam-rom-manager
   ];
 }
