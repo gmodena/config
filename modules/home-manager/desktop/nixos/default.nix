@@ -21,6 +21,7 @@ in
     "im.riot.Riot"
     "com.logseq.Logseq"
     "com.jetbrains.IntelliJ-IDEA-Community"
+    "org.signal.Signal"
   ];
 
   home.packages = with pkgs; [
@@ -32,7 +33,6 @@ in
     tdesktop # Telegram Desktop app
     chromium
     slack
-    signal-desktop
     weechat
     hexchat
     podman
