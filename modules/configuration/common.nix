@@ -28,7 +28,7 @@ in {
     neovim
     tmux
     bat
-    python38
+    python3
     nodejs
     git
   ];
