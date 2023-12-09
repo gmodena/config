@@ -54,5 +54,6 @@ in
     steam
     steam-run
     steam-rom-manager
+    quickemu
   ];
 }
