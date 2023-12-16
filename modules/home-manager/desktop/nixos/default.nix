@@ -3,12 +3,13 @@ let
   paperwm-develop = pkgs.gnomeExtensions.paperwm.overrideAttrs (old: {
     version = "39";
 
-    # 2023-03-04: latest commit in develop. Needed to install on Gnome 43.
+    # 2023-12-16: pin gnome45 release. Required as part of the 
+    # nixpkgs 23.11 update cycle.
     src = pkgs.fetchFromGitHub {
       owner = "paperwm";
       repo = "PaperWM";
-      rev = "ff4b0b66827f62b1b6824186f0e6d650de55dc24";
-      hash = "sha256-QTeUbhqHi1fMhw5cgT5S6JGgDaPhBuMwn4nRcp7mSMU=";
+      rev = "6bead84704bf4db8fb7eb2ecd94bb1212059f7c3";
+      hash = "sha256-lvMf3rg1wooXG++VvwreSZeOE8TOgTgfVU7SDIpYdI0=";
     };
   });
 
