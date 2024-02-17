@@ -23,8 +23,10 @@ in
     "com.logseq.Logseq"
     "com.jetbrains.IntelliJ-IDEA-Community"
     "org.signal.Signal"
+    "io.typora.Typora"
   ];
-
+  services.flatpak.uninstallUnmanagedPackages = true;
+   
   home.packages = with pkgs; [
     firefox
     _1password-gui
