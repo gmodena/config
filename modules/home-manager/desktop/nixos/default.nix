@@ -25,8 +25,8 @@ in
     "org.signal.Signal"
     "io.typora.Typora"
   ];
-  services.flatpak.uninstallUnmanagedPackages = true;
-   
+  services.flatpak.uninstallUnmanaged = true;
+
   home.packages = with pkgs; [
     firefox
     _1password-gui
