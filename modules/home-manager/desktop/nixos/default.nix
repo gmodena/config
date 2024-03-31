@@ -24,6 +24,7 @@ in
     "com.jetbrains.IntelliJ-IDEA-Community"
     "org.signal.Signal"
     "io.typora.Typora"
+    "net.ankiweb.Anki"
   ];
   services.flatpak.uninstallUnmanagedPackages = true;
    
