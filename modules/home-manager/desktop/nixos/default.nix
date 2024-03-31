@@ -26,8 +26,8 @@ in
     "io.typora.Typora"
     "net.ankiweb.Anki"
   ];
-  services.flatpak.uninstallUnmanagedPackages = true;
-   
+  services.flatpak.uninstallUnmanaged = true;
+
   home.packages = with pkgs; [
     firefox
     _1password-gui
