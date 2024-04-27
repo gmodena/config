@@ -25,6 +25,7 @@ in
     "org.signal.Signal"
     "io.typora.Typora"
     "net.ankiweb.Anki"
+    "com.visualstudio.code"
   ];
   services.flatpak.uninstallUnmanaged = true;
 
@@ -45,8 +46,6 @@ in
     synology-drive-client
     powertop
     albert
-    jetbrains.idea-community
-    vscode-fhs # TODO(2023-02-04): reconsider using fhs if I stick to this IDE
     gcc
     gnome.gnome-tweaks
     protonvpn-gui

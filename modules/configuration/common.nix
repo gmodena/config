@@ -11,6 +11,7 @@ in {
   nixpkgs.config.permittedInsecurePackages = [
     "electron-18.1.0"
     "electron-19.0.7"
+    "electron-25.9.0"
   ];
   user = {
       name = "${userName}";
