@@ -45,7 +45,7 @@
           ]
         , extraModules ? [ ]
         }: darwin.lib.darwinSystem {
-          system = "x86_64-darwin";
+          system = "aarch64-darwin";
           modules = baseModules ++ extraModules;
         };
 
@@ -67,10 +67,7 @@
         };
       };
       darwinConfigurations = {
-        Gabrieles-MBP = mkDarwinConfiguration {
-          extraModules = [ ./profiles/personal.nix ];
-        };
-        wmf2799 = mkDarwinConfiguration {
+        wmf3482 = mkDarwinConfiguration {
           extraModules = [ ./profiles/wmf.nix ];
         };
       };
