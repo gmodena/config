@@ -7,8 +7,8 @@
 {
   imports =
     [ 
-      ../../../hardware/framework-i12th-detected.nix
-      ../nixos/default.nix
+      ../../../../hardware/framework-i12th-detected.nix
+      ../default.nix
     ];
 
   # Bootloader.

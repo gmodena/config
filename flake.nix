@@ -55,17 +55,12 @@
         framework-nixos-1 = mkNixosConfiguration {
           extraModules = [
             nixos-hardware.nixosModules.framework-12th-gen-intel
-            ./modules/configuration/framework-nixos-1/default.nix
+            ./modules/configuration/nixos/framework-nixos-1/default.nix
             ./profiles/personal.nix
           ];
         };
       };
 
-      nixosConfigurations = {
-        vmware-nixos-1 = mkNixosConfiguration {
-          extraModules = [ ./modules/configuration/vmware-nixos-1/default.nix ./profiles/personal.nix ];
-        };
-      };
       darwinConfigurations = {
         wmf3482 = mkDarwinConfiguration {
           extraModules = [ ./profiles/wmf.nix ];

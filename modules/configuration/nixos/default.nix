@@ -36,7 +36,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.flatpak.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -63,15 +62,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  users.mutableUsers = true; # The password can be changed subsequently using passwd
-  # Define a user account. Don't forget to set a password with ‘passwd’. 
-  users.users.gmodena = {
-     isNormalUser = true;
-     home = "/home/gmodena";
-     extraGroups = ["wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
-     initialHashedPassword = "changeme"; # the hashed password assigned if the user does not already exist.
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # environment.systemPackages = with pkgs; [
@@ -94,7 +84,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh.enable = false;
   
   # networking.enableIPv6 = false;
   networking.networkmanager.enable = true;
