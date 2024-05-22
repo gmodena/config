@@ -59,4 +59,10 @@ in
     steam-rom-manager
     quickemu
   ];
+  # Enable fractional scaling for Gnome DM.
+  dconf.settings = {
+    "org/gnome/mutter" = {
+      experimental-features = [ "scale-monitor-framebuffer" ];
+    };
+  };
 }
