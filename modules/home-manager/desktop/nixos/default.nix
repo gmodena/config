@@ -1,15 +1,15 @@
 { lib, config, pkgs, flake-inputs, ... }:
 let
   paperwm-develop = pkgs.gnomeExtensions.paperwm.overrideAttrs (old: {
-    version = "39";
+    version = "46.11.2";
 
-    # 2023-12-16: pin gnome45 release. Required as part of the 
-    # nixpkgs 23.11 update cycle.
+    # 2024-06-13: pin Gnome46 release. Required as part of the
+    # nixpkgs 24.05 update cycle.
     src = pkgs.fetchFromGitHub {
       owner = "paperwm";
       repo = "PaperWM";
-      rev = "6bead84704bf4db8fb7eb2ecd94bb1212059f7c3";
-      hash = "sha256-lvMf3rg1wooXG++VvwreSZeOE8TOgTgfVU7SDIpYdI0=";
+      rev = "2ab1d62eaff52c83c3c4a9bf804aa27382936beb"; # v46.11.2
+      hash = "sha256-EGS6XyRqTiKiJ5EQP5O8jHK9rE2hWK1Sf7Vuw2eLcWg=";
     };
   });
 
@@ -45,7 +45,6 @@ in
     gnomeExtensions.appindicator
     synology-drive-client
     powertop
-    albert
     gcc
     gnome.gnome-tweaks
     protonvpn-gui
