@@ -20,7 +20,7 @@
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
-  boot.kernelPackages = pkgs.linuxPackages_6_1;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "framework-nixos-1"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -63,8 +63,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -123,10 +123,10 @@
   environment.gnome.excludePackages = (with pkgs; [
         gnome-photos
         gnome-tour
+        gedit # text editor
       ]) ++ (with pkgs.gnome; [
         cheese # webcam tool
         gnome-music
-        gedit # text editor
         epiphany # web browser
         geary # email reader
         gnome-characters

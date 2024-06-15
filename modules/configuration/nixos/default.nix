@@ -50,7 +50,7 @@
   # gsettings reset org.gnome.desktop.input-sources sources
   # After nixos-rebuild switch.
   # TODO(2023-02-03): look at home-manager's dconf module;
-  services.xserver.xkbOptions = "caps:swapescape";
+  services.xserver.xkb.options = "caps:swapescape";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
