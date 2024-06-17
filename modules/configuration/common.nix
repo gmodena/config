@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, ... }:
 let
     userName = "gmodena";
-    homePrefix = if config.system == "x86_64-darwin" then "/Users" else "/home";
+    homePrefix = if pkgs.system == "aarch64-darwin" then "/Users" else "/home";
 in {
   nix.package = pkgs.nixFlakes;
   nix.extraOptions = lib.optionalString (config.nix.package == pkgs.nixFlakes)
@@ -24,8 +24,7 @@ in {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs;
-  [ adoptopenjdk-openj9-bin-8
-    direnv
+  [ direnv
     neovim
     tmux
     bat
