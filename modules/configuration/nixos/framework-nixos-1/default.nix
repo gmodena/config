@@ -31,6 +31,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
@@ -138,6 +139,11 @@
         gnome-contacts
         gnome-initial-setup
       ]);
+  # https://nixos.wiki/wiki/Tailscale
+  # Use 'sudo tailscale up --operator=gmodena'
+  # or 'tailscale up --operator=$USER' to not require root.
+  services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "client";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
