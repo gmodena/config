@@ -22,6 +22,7 @@ in
     "im.riot.Riot"
     "com.logseq.Logseq"
     "com.jetbrains.IntelliJ-IDEA-Community"
+    "com.jetbrains.PyCharm-Community"
     "org.signal.Signal"
     "io.typora.Typora"
     "net.ankiweb.Anki"
