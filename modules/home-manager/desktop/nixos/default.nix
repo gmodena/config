@@ -18,7 +18,7 @@ in
   imports = [ ../../default.nix flake-inputs.flatpaks.homeManagerModules.nix-flatpak ];
 
   services.flatpak.packages = [
-    { appId = "com.brave.Browser"; origin = "flathub";  }
+    { appId = "com.brave.Browser"; origin = "flathub"; }
     "im.riot.Riot"
     "com.logseq.Logseq"
     "com.jetbrains.IntelliJ-IDEA-Community"
@@ -40,9 +40,9 @@ in
     slack
     weechat
     hexchat
-    podman
     paperwm-develop
     gnomeExtensions.appindicator
+    gnomeExtensions.caffeine
     synology-drive-client
     powertop
     gcc
@@ -62,6 +62,18 @@ in
   dconf.settings = {
     "org/gnome/mutter" = {
       experimental-features = [ "scale-monitor-framebuffer" ];
+    };
+  };
+
+  home.sessionPath = [ "$HOME/.local/bin" ];
+  home.file = {
+    "zwift.sh" = {
+      source = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/netbrain/zwift/master/zwift.sh";
+        hash = "sha256-cymIMo5bhqEXSoKKmRXyJbAksjXWJYZ6jS/AktwJt28=";
+      };
+      target = ".local/bin/zwift";
+      executable = true;
     };
   };
 }
