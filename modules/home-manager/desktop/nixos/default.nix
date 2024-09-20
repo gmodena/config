@@ -27,6 +27,7 @@ in
     "io.typora.Typora"
     "net.ankiweb.Anki"
     "com.visualstudio.code"
+    "io.github.zen_browser.zen"
   ];
   services.flatpak.uninstallUnmanaged = true;
 
