@@ -68,9 +68,6 @@
     xkb.variant = "";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # https://nixos.wiki/wiki/Podman
   virtualisation.containers.enable = true;
   virtualisation = {
