@@ -31,5 +31,6 @@ in {
     python3
     nodejs
     git
+    htop
   ];
 }
