@@ -59,6 +59,7 @@ in
     steam-run
     steam-rom-manager
     quickemu
+    discord
   ];
   # Enable fractional scaling for Gnome DM.
   dconf.settings = {
