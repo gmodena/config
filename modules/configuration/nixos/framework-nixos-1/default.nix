@@ -75,13 +75,18 @@
       enable = true;
 
       # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
+      dockerCompat = false;
 
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
+    # I need docker for some buildkit frontend specify thingies (blubber)
+    docker = {
+      enable = true;
+    };
   };
-
+  users.extraGroups.docker.members = [ "gmodena" ];
+  
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
