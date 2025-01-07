@@ -41,7 +41,8 @@ in
         wget
         cachix
         direnv
-        scc];
+        scc
+        unzip];
     };
     programs.git = {
       enable = true;

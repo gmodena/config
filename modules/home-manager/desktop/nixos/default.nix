@@ -73,7 +73,7 @@ in
     "zwift.sh" = {
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/netbrain/zwift/master/zwift.sh";
-        hash = "sha256-cymIMo5bhqEXSoKKmRXyJbAksjXWJYZ6jS/AktwJt28=";
+        hash = "sha256-iqHPcHIQ/vr+HQtRsO01aKt3T7fwW3NQnrhqhKiB/Cc=";
       };
       target = ".local/bin/zwift";
       executable = true;
