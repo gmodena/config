@@ -60,8 +60,6 @@ in
       withPython3 = true;
       plugins = with pkgs.vimPlugins; [
         coc-nvim
-        coc-python
-        coc-metals
         coc-rust-analyzer
         vim-scala
         vim-nix
