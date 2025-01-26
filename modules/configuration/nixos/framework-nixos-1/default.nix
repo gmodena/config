@@ -15,6 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.initrd.systemd.network.wait-online.enable = false;
 
   # Setup keyfile
   boot.initrd.secrets = {
@@ -31,6 +32,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.network.wait-online.enable = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -83,7 +86,6 @@
   };
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {

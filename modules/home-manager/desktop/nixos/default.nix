@@ -27,9 +27,16 @@ in
     "io.typora.Typora"
     "net.ankiweb.Anki"
     "com.visualstudio.code"
-    "io.github.zen_browser.zen"
+    "app.zen_browser.zen"
+    { 
+      flatpakref="https://sober.vinegarhq.org/sober.flatpakref";
+      sha256="1pj8y1xhiwgbnhrr3yr3ybpfis9slrl73i0b1lc9q89vhip6ym2l";
+    }
   ];
   services.flatpak.uninstallUnmanaged = true;
+  services.flatpak.uninstallUnused = true;
+  services.flatpak.update.auto.enable = true;
+  services.flatpak.update.onActivation = false;
 
   home.packages = with pkgs; [
     firefox
@@ -51,7 +58,6 @@ in
     gnome.gnome-tweaks
     protonvpn-gui
     yacreader
-    qbittorrent
     tor-browser-bundle-bin
     gnumake
     chiaki
