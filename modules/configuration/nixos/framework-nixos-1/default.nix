@@ -15,6 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.initrd.systemd.enable = true;
   boot.initrd.systemd.network.wait-online.enable = false;
 
   # Setup keyfile
@@ -84,6 +85,8 @@
       defaultNetwork.settings.dns_enabled = true;
     };
   };
+
+  virtualisation.xen.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
