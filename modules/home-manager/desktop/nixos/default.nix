@@ -48,6 +48,7 @@
     steam-rom-manager
     quickemu
     discord
+    ghostty
   ];
   # Enable fractional scaling for Gnome DM.
   dconf.settings = {
