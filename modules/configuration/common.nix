@@ -21,6 +21,12 @@ in {
   #hm = import ../home-manager/desktop/nixos/default.nix;
   programs.zsh.enable = true;
 
+  # /ets/hosts...
+  networking.hosts = {
+    "65.108.217.227" = ["nixos-ampere-1"];
+    "192.168.1.45" = ["synology.local"];
+  };
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs;
