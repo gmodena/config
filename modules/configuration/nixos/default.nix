@@ -23,6 +23,12 @@
   networking.useDHCP = false;
   networking.interfaces.ens33.useDHCP = true;
 
+  # /ets/hosts...
+  networking.hosts = {
+    "65.108.217.227" = ["nixos-ampere-1"];
+    "192.168.1.45" = ["synology.local"];
+  };
+  
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
