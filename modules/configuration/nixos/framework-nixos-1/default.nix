@@ -142,23 +142,21 @@
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
-        gnome-photos
-        gnome-tour
-        gedit # text editor
-      ]) ++ (with pkgs.gnome; [
-        cheese # webcam tool
-        gnome-music
-        epiphany # web browser
-        geary # email reader
-        gnome-characters
-        tali # poker game
-        iagno # go game
-        hitori # sudoku game
-        atomix # puzzle game
-        yelp # Help view
-        gnome-contacts
-        gnome-initial-setup
-      ]);
+    gnome-photos
+    gnome-tour
+    gedit # text editor
+    epiphany
+    cheese
+    geary # email reader
+    gnome-characters
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+    yelp # Help view
+    gnome-contacts
+     gnome-initial-setup
+  ]);
   # https://nixos.wiki/wiki/Tailscale
   # Use 'sudo tailscale up --operator=gmodena'
   # or 'tailscale up --operator=$USER' to not require root.

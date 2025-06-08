@@ -37,7 +37,7 @@
     synology-drive-client
     powertop
     gcc
-    gnome.gnome-tweaks
+    gnome-tweaks
     protonvpn-gui
     yacreader
     tor-browser-bundle-bin
@@ -62,7 +62,7 @@
     "zwift.sh" = {
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/netbrain/zwift/master/zwift.sh";
-        hash = "sha256-iqHPcHIQ/vr+HQtRsO01aKt3T7fwW3NQnrhqhKiB/Cc=";
+        hash = "sha256-LOBPAVXu8ypAVJVAB60AFhNOmIMiLaAv/NZR6AOqeEc=";
       };
       target = ".local/bin/zwift";
       executable = true;
