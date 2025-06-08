@@ -59,17 +59,24 @@
 
   services.fwupd.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
- # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
   services.xserver = {
+    enable = true;
+ 
     xkb.layout = "us";
     xkb.variant = "";
+ 
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
+    desktopManager.gnome = {
+      enable = true;
+      extraGSettingsOverridePackages = [ pkgs.mutter ];
+      extraGSettingsOverrides = ''
+        [org.gnome.mutter]
+        experimental-features=['scale-monitor-framebuffer']
+      '';
+    };
   };
 
   # https://nixos.wiki/wiki/Podman
