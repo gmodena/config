@@ -49,6 +49,8 @@
     quickemu
     discord
     ghostty
+    zed-editor
+    windsurf
   ];
   # Enable fractional scaling for Gnome DM.
   dconf.settings = {
