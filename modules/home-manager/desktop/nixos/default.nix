@@ -13,12 +13,43 @@
     "net.ankiweb.Anki"
     "com.visualstudio.code"
     "app.zen_browser.zen"
-    "edu.mit.Scratch"
   ];
   services.flatpak.uninstallUnmanaged = false;
-  services.flatpak.uninstallUnused = true;
+  services.flatpak.uninstallUnused = false;
   services.flatpak.update.auto.enable = true;
   services.flatpak.update.onActivation = false;
+
+  services.flatpak.overrides.settings =  {
+    global = {
+      # Force Wayland by default
+      Context.sockets = ["wayland" "!x11" "!fallback-x11"];
+
+      Environment = {
+        # Fix un-themed cursor in some Wayland apps
+        XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
+
+        # Force correct theme for some GTK apps
+        GTK_THEME = "Adwaita:dark";
+      };
+    };
+
+    "com.visualstudio.code".Context = {
+      filesystems = [
+        "xdg-config/git:ro" # Expose user Git config
+        "/run/current-system/sw/bin:ro" # Expose NixOS managed software
+      ];
+      sockets = [
+        "gpg-agent" # Expose GPG agent
+        "pcsc" # Expose smart cards (i.e. YubiKey)
+      ];
+    };
+  };
+
+  services.flatpak.overrides.files = [ 
+    "/home/gmodena/config/modules/home-manager/desktop/nixos/overrides/org.onlyoffice.desktopeditors"
+    "/home/gmodena/config/modules/home-manager/desktop/nixos/overrides/org.gnome.gedit"
+    "/home/gmodena/config/modules/home-manager/desktop/nixos/overrides/global"
+  ];
 
   home.packages = with pkgs; [
     firefox
@@ -62,7 +93,7 @@
     "zwift.sh" = {
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/netbrain/zwift/master/zwift.sh";
-        hash = "sha256-LOBPAVXu8ypAVJVAB60AFhNOmIMiLaAv/NZR6AOqeEc=";
+        hash = "sha256-+iD3Af/23siXAYXjwFnElHeUbC+SEJ+ag2I660kIpfI=";
       };
       target = ".local/bin/zwift";
       executable = true;
