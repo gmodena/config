@@ -49,6 +49,7 @@
     quickemu
     discord
     ghostty
+    deskflow
   ];
   # Enable fractional scaling for Gnome DM.
   dconf.settings = {

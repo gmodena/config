@@ -6,7 +6,6 @@
       "keybase"
       "cryptomator"
       "obsidian"
-      "barrier"
       "brave-browser"
     ];
   };
