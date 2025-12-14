@@ -25,8 +25,8 @@
     _1password-gui
     obsidian
     spotify
-    whatsapp-for-linux
-    tdesktop # Telegram Desktop app
+    wasistlos
+    telegram-desktop # Telegram Desktop app
     chromium
     slack
     weechat
@@ -40,7 +40,7 @@
     gnome-tweaks
     protonvpn-gui
     yacreader
-    tor-browser-bundle-bin
+    tor-browser
     gnumake
     chiaki
     steam
@@ -58,14 +58,4 @@
   };
 
   home.sessionPath = [ "$HOME/.local/bin" ];
-  home.file = {
-    "zwift.sh" = {
-      source = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/netbrain/zwift/master/zwift.sh";
-        hash = "sha256-LOBPAVXu8ypAVJVAB60AFhNOmIMiLaAv/NZR6AOqeEc=";
-      };
-      target = ".local/bin/zwift";
-      executable = true;
-    };
-  };
 }

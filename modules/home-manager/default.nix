@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 let
   homeDir = config.home.homeDirectory;
@@ -48,7 +48,7 @@ in
   };
   programs.git = {
     enable = true;
-    extraConfig = {
+    settings = {
       core.editor = "vim";
       init.defaultBranch = "main";
       pull.rebase = false;
@@ -82,8 +82,32 @@ in
       ls = "ls --color=auto -F";
     };
 
-    initExtra = ''
-       # Load vcs_info function for git status
+    history = {
+      size = 10000;
+      save = 10000;
+      ignoreDups = true;
+      share = true;
+    };
+
+    initContent = lib.mkOrder 550 ''
+      eval $(${pkgs.coreutils}/bin/dircolors -b ${../home/LS_COLORS})
+      eval "$(direnv hook zsh)"
+        
+      # Enable emacs-style line navigation
+      bindkey '^A' beginning-of-line        # Ctrl+A: Move to beginning of line
+      bindkey '^E' end-of-line              # Ctrl+E: Move to end of line
+      
+      # Use Alt+F and Alt+B for word navigation
+      bindkey '^[f' forward-word            # Alt+f: Move forward one word
+      bindkey '^[b' backward-word      
+
+      # Bind Ctrl+R to history search
+      bindkey '^R' history-incremental-search-backward
+      
+      bindkey '^[[A' up-line-or-search    # Up arrow for history search
+      bindkey '^[[B' down-line-or-search  # Down arrow for history search
+
+      # Load vcs_info function for git status
       autoload -Uz vcs_info
       
       # Enable checking for staged, unstaged, and untracked changes
@@ -104,33 +128,6 @@ in
       }
       
       PROMPT='%F{green}%n@%m%f:%F{blue}%~%f ''${vcs_info_msg_0_}%# '
-    '';
-
-    history = {
-      size = 10000;
-      save = 10000;
-      ignoreDups = true;
-      share = true;
-    };
-
-    initExtraBeforeCompInit = ''
-      eval $(${pkgs.coreutils}/bin/dircolors -b ${../home/LS_COLORS})
-      eval "$(direnv hook zsh)"
-        
-      # Enable emacs-style line navigation
-      bindkey '^A' beginning-of-line        # Ctrl+A: Move to beginning of line
-      bindkey '^E' end-of-line              # Ctrl+E: Move to end of line
-      
-      # Use Alt+F and Alt+B for word navigation
-      bindkey '^[f' forward-word            # Alt+f: Move forward one word
-      bindkey '^[b' backward-word      
-
-      # Bind Ctrl+R to history search
-      bindkey '^R' history-incremental-search-backward
-      
-      bindkey '^[[A' up-line-or-search    # Up arrow for history search
-      bindkey '^[[B' down-line-or-search  # Down arrow for history search
-
     '';
   };
   xdg.configFile."nvim/coc-settings.json".text = builtins.readFile ../dotfiles/nvim/my-coc-settings.json;

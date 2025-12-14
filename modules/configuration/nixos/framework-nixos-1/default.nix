@@ -64,20 +64,21 @@
  
     xkb.layout = "us";
     xkb.variant = "";
- 
-    displayManager.gdm = {
+  };
+
+  services.displayManager.gdm = {
       enable = true;
       wayland = true;
-    };
-    desktopManager.gnome = {
+  };
+  services.desktopManager.gnome = {
       enable = true;
       extraGSettingsOverridePackages = [ pkgs.mutter ];
       extraGSettingsOverrides = ''
         [org.gnome.mutter]
         experimental-features=['scale-monitor-framebuffer']
       '';
-    };
   };
+
 
   # https://nixos.wiki/wiki/Podman
   virtualisation.containers.enable = true;
@@ -96,7 +97,7 @@
   virtualisation.xen.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
