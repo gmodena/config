@@ -30,9 +30,4 @@
     gca = "git commit --amend";
     grt = "git review -R -t";
   };
-
-  xdg.configFile."barrier/barrier.conf" = {
-    # Barrier KVM server configuration.
-    text = builtins.readFile  ../../modules/home/barrier.conf;
-  };
 }

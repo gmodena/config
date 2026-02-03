@@ -35,20 +35,6 @@
           modules = baseModules ++ extraModules;
         };
 
-      mkDarwinConfiguration =
-        { baseModules ? [
-            ./modules/configuration/darwin/default.nix
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useUserPackages = true;
-            }
-          ]
-        , extraModules ? [ ]
-        }: darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          modules = baseModules ++ extraModules;
-        };
-
     in
     {
       nixosConfigurations = {
@@ -59,11 +45,12 @@
             ./profiles/personal.nix
           ];
         };
-      };
-
-      darwinConfigurations = {
-        wmf3482 = mkDarwinConfiguration {
-          extraModules = [ ./profiles/wmf.nix ];
+        x1-nixos-1 = mkNixosConfiguration {
+          extraModules = [
+            nixos-hardware.nixosModules.lenovo-thinkpad-x1-11th-gen
+            ./modules/configuration/nixos/x1-nixos-1/default.nix
+            ./profiles/wmf.nix
+          ];
         };
       };
     };

@@ -44,8 +44,15 @@ in
       direnv
       scc
       unzip
+      jdk25
+      gnumake
+      aider-chat
+      opencode
+      gemini-cli
+      claude-code
     ];
   };
+
   programs.git = {
     enable = true;
     settings = {

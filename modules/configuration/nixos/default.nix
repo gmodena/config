@@ -13,7 +13,6 @@
       ../common.nix
     ];
 
-  hm = import ../../home-manager/desktop/nixos/default.nix;
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
@@ -70,10 +69,11 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  environment.systemPackages = with pkgs; [
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    easyeffects
   #  zsh
-  # ];
+   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -88,10 +88,13 @@
   };
 
   # List services that you want to enable:
+  services.ollama = {
+    enable = true;
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = false;
-  
+
   # networking.enableIPv6 = false;
   networking.networkmanager.enable = true;
   networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
