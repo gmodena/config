@@ -59,6 +59,21 @@
   # TODO(2023-02-03): look at home-manager's dconf module;
   services.xserver.xkb.options = "caps:swapescape";
 
+  # https://wiki.nixos.org/wiki/Intel_Graphics
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      # Required for modern Intel GPUs (Xe iGPU and ARC)
+      intel-media-driver     # VA-API (iHD) userspace
+      vpl-gpu-rt             # oneVPL (QSV) runtime
+    ];
+  };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";     # Prefer the modern iHD backend
+    # VDPAU_DRIVER = "va_gl";      # Only if using libvdpau-va-gl
+  };
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -84,6 +99,11 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 
   environment.variables = {
     EDITOR = "vim";
