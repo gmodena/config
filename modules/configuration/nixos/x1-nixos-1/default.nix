@@ -7,25 +7,19 @@
 {
   imports =
     [ 
-      ../../../../hardware/framework-i12th-detected.nix
+      ../../../../hardware/x1-carbon.nix
       ../default.nix
     ];
 
-  hm = import ../../../home-manager/desktop/nixos/default.nix;
-  
+  hm = import ../../../home-manager/work/nixos/default.nix;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.initrd.systemd.enable = true;
   boot.initrd.systemd.network.wait-online.enable = false;
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  networking.hostName = "framework-nixos-1"; # Define your hostname.
+  networking.hostName = "x1-nixos-1"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -82,21 +76,8 @@
   };
 
 
-  # https://nixos.wiki/wiki/Podman
   virtualisation.containers.enable = true;
-  virtualisation = {
-    podman = {
-      enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
-
-  virtualisation.xen.enable = true;
+  virtualisation.docker.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -140,7 +121,6 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
     dive
-    podman-tui
     docker-compose
   ];
 
@@ -160,12 +140,6 @@
     gnome-contacts
      gnome-initial-setup
   ]);
-  # https://nixos.wiki/wiki/Tailscale
-  # Use 'sudo tailscale up --operator=gmodena'
-  # or 'tailscale up --operator=$USER' to not require root.
-  services.tailscale.enable = true;
-  services.tailscale.useRoutingFeatures = "client";
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -191,6 +165,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }
