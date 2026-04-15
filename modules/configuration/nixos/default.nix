@@ -11,6 +11,8 @@
       ../../primary.nix
       # System packages and shared config
       ../common.nix
+      # vim config
+      ./vim.nix
     ];
 
   # Set your time zone.

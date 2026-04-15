@@ -13,10 +13,18 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      # You can override the input nixpkgs to follow your system's
+      # instance of nixpkgs. This is safe to do as nvf does not depend
+      # on a binary cache.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nixos-hardware, flatpaks, ... }:
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, nixos-hardware, flatpaks, nvf, ... }:
     let
 
       mkNixosConfiguration =
@@ -28,6 +36,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs.flake-inputs = inputs;
             }
+            nvf.nixosModules.default
           ]
         , extraModules ? [ ]
         }: nixpkgs.lib.nixosSystem {
