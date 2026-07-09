@@ -60,7 +60,6 @@
     _1password-gui
     obsidian
     spotify
-    wasistlos
     telegram-desktop # Telegram Desktop app
     chromium
     gnomeExtensions.appindicator
