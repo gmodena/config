@@ -62,6 +62,8 @@ in {
       core.editor = "vim";
       init.defaultBranch = "main";
       pull.rebase = false;
+      push.default = "current";
+      push.autoSetupRemote = true;
     };
   };
   programs.bat.enable = true;
