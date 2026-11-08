@@ -1,3 +1,5 @@
 .DS_Store
 .idea
 result
+local.zsh
+/modules/home-manager/local.zsh

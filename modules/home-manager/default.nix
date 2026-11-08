@@ -120,6 +120,9 @@ in {
       }
 
       PROMPT='%F{green}%n@%m%f:%F{blue}%~%f ''${vcs_info_msg_0_}%# '
+
+      # Load machine local, untracked, secrets. E.g. API keys that I don't want to keep under version control.
+      [[ -f $HOME/.config/zsh/local.zsh ]] && source "$HOME/.config/zsh/local.zsh";
     '';
   };
 
