@@ -60,7 +60,48 @@
         jq.enable = true;
       };
 
+      # AI assistant: codecompanion with Claude API
+      # Requires ANTHROPIC_API_KEY env var to be set
+      # Usage:
+      #   :CodeCompanionChat        - open chat buffer
+      #   :CodeCompanion <prompt>   - inline edit on selection
+      #   :CodeCompanionActions     - action palette (explain, review, refactor, etc.)
+      #
+      # In inline mode:
+      #   ga  - accept the AI's change
+      #   gr  - reject the AI's change
+      vim.assistant.codecompanion-nvim = {
+        enable = true;
+        setupOpts = {
+          strategies = {
+            chat = {
+              adapter = "anthropic";
+            };
+            inline = {
+              adapter = "anthropic";
+            };
+          };
+          display = {
+            chat = {
+              show_token_count = true;
+              show_references = true;
+            };
+            diff = {
+              enabled = true;
+              provider = "inline";
+            };
+          };
+        };
+      };
+
       vim.snippets.luasnip.enable = true;
+
+      # surround: quickly add/change/delete surrounding chars
+      #   ysiw"  - surround inner word with "
+      #   cs"'   - change surrounding " to '
+      #   ds"    - delete surrounding "
+      #   S" (visual mode) - surround selection with "
+      vim.utility.surround.enable = true;
 
       vim.autopairs.nvim-autopairs.enable = true;
       vim.comments.comment-nvim.enable = true;
@@ -71,7 +112,7 @@
 
       vim.visuals = {
         nvim-cursorline.enable = true;
-        indentBlankline.enable = true;
+        indent-blankline.enable = true;
         rainbow-delimiters.enable = true;
       };
 
