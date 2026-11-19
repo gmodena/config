@@ -53,6 +53,7 @@ in {
       opencode
       gemini-cli
       claude-code
+      halloy
     ];
   };
 
