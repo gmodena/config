@@ -54,6 +54,9 @@ in {
       gemini-cli
       claude-code
       halloy
+      gh
+      glab
+      wl-clipboard
     ];
   };
 

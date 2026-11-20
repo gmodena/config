@@ -20,6 +20,9 @@
         lspsaga.enable = false;
         trouble.enable = true;
         lspSignature.enable = true;
+
+        # completion and validation for .gitlab-ci.yml
+        presets.gitlab-ci-ls.enable = true;
       };
 
       vim.languages = {
@@ -122,7 +125,27 @@
           enable = true;
           codeActions.enable = true;
         };
+
+        # Review GitHub PRs, issues and discussions in a buffer.
+        # Shells out to the gh CLI, so gh must be on PATH.
+        # Picker resolves to telescope, since it is enabled below.
+        # Usage:
+        #   <leader>op - list pull requests
+        #   <leader>oi - list issues
+        #   <leader>od - list discussions
+        #   <leader>ol - list notifications
+        #   <leader>os - search this repo
+        #   :Octo review start / :Octo review submit - review a PR
+        octo-nvim.enable = true;
+
+        # yank or open a permalink to the current line on the remote host
+        gitlinker-nvim.enable = true;
       };
+
+      # side-by-side diff review; pairs with octo for whole-PR diffs
+      #   :DiffviewOpen <rev>  - review a range
+      #   :DiffviewFileHistory - history of the current file
+      vim.utility.diffview-nvim.enable = true;
 
       vim.telescope = {
         enable = true;
