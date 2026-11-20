@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -20,6 +21,11 @@
         lspsaga.enable = false;
         trouble.enable = true;
         lspSignature.enable = true;
+        # Resolve zls from PATH at runtime instead of the store path nvf's zls
+        # preset bakes in, so a project's direnv devshell supplies a zls
+        # matching its zig. mkForce because the preset defines cmd itself.
+        # Tradeoff: no zig LSP outside a devshell.
+        servers.zls.cmd = lib.mkForce ["zls"];
 
         # completion and validation for .gitlab-ci.yml
         presets.gitlab-ci-ls.enable = true;
