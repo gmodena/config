@@ -53,6 +53,9 @@ in {
       opencode
       gemini-cli
       claude-code
+      gh
+      glab
+      wl-clipboard
     ];
   };
 
