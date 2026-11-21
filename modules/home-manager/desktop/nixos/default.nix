@@ -5,7 +5,7 @@
   flake-inputs,
   ...
 }: {
-  imports = [../../default.nix flake-inputs.flatpaks.homeManagerModules.nix-flatpak];
+  imports = [../../default.nix ./niri.nix flake-inputs.flatpaks.homeManagerModules.nix-flatpak];
 
   services.flatpak.packages = [
     {
