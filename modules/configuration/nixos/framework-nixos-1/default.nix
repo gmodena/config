@@ -9,6 +9,8 @@
   imports = [
     ../../../../hardware/framework-i12th-detected.nix
     ../default.nix
+    # niri + noctalia-shell session, alongside GNOME.
+    ../niri.nix
   ];
 
   hm = import ../../../home-manager/desktop/nixos/default.nix;
